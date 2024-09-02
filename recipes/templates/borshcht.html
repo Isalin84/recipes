@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ title }} - Мои Рецепты{% endblock %}
+
+{% block content %}
+<div class="card mb-4">
+    <img src="{% static 'images/borsscht.webp' %}" class="card-img-top" alt="{{ Борщ }}" style="width: 50%; height: auto;">
+    <div class="card-body">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">{{ description }}</p>
+        <h6>Ингредиенты:</h6>
+        <ul>
+            {% for ingredient in ingredients %}
+                <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+        <h6>Инструкция:</h6>
+        <p>{{ instructions|linebreaks }}</p>
+    </div>
+</div>
+{% endblock %}
